@@ -5,9 +5,9 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import App from './App';
 import Main from './Layout/Main';
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
+
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,7 @@ path:"/",
 elements:<Home></Home>,
     },
     {
-      
+
     }
   
   ]

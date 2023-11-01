@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.svg"
 const NavBar = () => {
 
-   
+
 
     const navItems = <>
         <li><Link to="/">Home</Link> </li>
@@ -10,7 +10,7 @@ const NavBar = () => {
         <li><Link to="/bookings">My Bookings</Link></li>
         <li><button >Log out</button></li>
         <li> <Link to="/login">Login</Link> </li>
-       
+
     </>
     return (
         <div className="navbar bg-base-100 h-28 mb-4">
@@ -24,7 +24,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case text-xl">
-                  <img src={logo} alt="" />
+                    <img src={logo} alt="" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -33,7 +33,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-            <button className="btn btn-outline btn-warning">Appointment</button>
+                <button className="btn btn-outline btn-warning">Appointment</button>
             </div>
         </div>
     );

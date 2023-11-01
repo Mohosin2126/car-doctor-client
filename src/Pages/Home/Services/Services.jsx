@@ -5,7 +5,7 @@ import ServiceCard from "./ServiceCard";
 
 const Services = () => {
     const [services, setServices] = useState([]);
-console.log(services)
+    console.log(services)
     useEffect(() => {
         fetch('services.json')
             .then(res => res.json())
@@ -21,7 +21,7 @@ console.log(services)
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
-                   services.map(service=><ServiceCard service={service} key={service.service_id }></ServiceCard>)
+                    services.map(service => <ServiceCard service={service} key={service.service_id}></ServiceCard>)
                 }
             </div>
         </div>

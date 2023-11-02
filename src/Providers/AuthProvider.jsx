@@ -1,10 +1,26 @@
 
+import { createContext, useState } from "react";
 
-const AuthProvider = () => {
+const AuthContext=createContext()
+
+
+const AuthProvider = ({Children}) => {
+
+const [user,setUser]=useState(null)
+const [loading,setLoading]=useState(true)
+
+
+const authInfo={
+    user,
+    loading,
+    
+}
+
+
     return (
-        <div>
-            
-        </div>
+       <AuthContext.Provider value={authInfo}>
+        {Children}
+       </AuthContext.Provider>
     );
 };
 

@@ -4,7 +4,14 @@ import img from '../../assets/images/login/login.svg'
 
 const SignUp = () => {
 
-   
+   const handleSignUp=e=>{
+    e.preventDefault()
+   const form=e.target 
+   const name=form.name.value 
+   const email=form.email.value 
+   const password =form.password.value 
+   console.log(name,email,password)
+   }
 
     
 
@@ -17,7 +24,7 @@ const SignUp = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <h1 className="text-3xl text-center font-bold">Sign Up</h1>
-                        <form >
+                        <form onSubmit={handleSignUp}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

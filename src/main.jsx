@@ -12,6 +12,7 @@ import SignUp from './Pages/SignUp/SignUp';
 import AuthProvider from './Providers/AuthProvider';
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,7 +40,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-7xl mx-auto'>
     <React.StrictMode>
       <AuthProvider>
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
       </AuthProvider>
     </React.StrictMode>,
   </div>

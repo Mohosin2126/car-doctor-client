@@ -31,7 +31,7 @@ const CheckOut = () => {
                     </label>
                 </div>
             </div>
-            {/* form supplier row */}
+         
             <div className="md:flex mb-8">
                 <div className="form-control md:w-1/2">
                     <label className="label">
@@ -50,7 +50,7 @@ const CheckOut = () => {
                     </label>
                 </div>
             </div>
-            {/* form Photo url row */}
+      
             <div className=" mb-8">
                 <div className="form-control w-full">
                     <label className="label">

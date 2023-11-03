@@ -37,7 +37,7 @@ const router = createBrowserRouter([
 
       {
         path: "/book/:id",
-        element: <BookService></BookService>,
+        element: <PrivateRoute><BookService></BookService></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
       },
       {
@@ -69,7 +69,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
-    </React.StrictMode>,
+    </React.StrictMode>
   </div>
 
 

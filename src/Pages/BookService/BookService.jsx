@@ -3,69 +3,45 @@ import { useLoaderData } from "react-router-dom";
 
 const BookService = () => {
     const service=useLoaderData()
-    const {title,_id}=service
+    const {title,_id,price}=service
 
     return (
         <div>
-            <h1>{title}</h1>
-            
-       <div className="bg-[#464542] p-24">
-        <h2 className="text-3xl font-extrabold text-center mb-10">Check Out </h2>
-        <form  >
-            
-            <div className="md:flex mb-8">
-                <div className="form-control md:w-1/2">
+        <h2 className='text-center text-3xl'>Book Service: {title} </h2>
+        <form >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="form-control">
                     <label className="label">
-                        <span className="label-text">First Name</span>
+                        <span className="label-text">Name</span>
                     </label>
-                    <label className="input-group">
-                        <input  type="text" name="firstname" placeholder="First Name " className="input input-bordered w-full" />
-                    </label>
+                    <input type="text" name="name" className="input input-bordered" />
                 </div>
-                <div className="form-control md:w-1/2 ml-4">
+                <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Last Name</span>
+                        <span className="label-text">Date</span>
                     </label>
-                    <label className="input-group">
-                        <input type="text" name="lastname" placeholder="Last Name" className="input input-bordered w-full" />
-                    </label>
+                    <input type="date" name="date" className="input input-bordered" />
                 </div>
-            </div>
-         
-            <div className="md:flex mb-8">
-                <div className="form-control md:w-1/2">
-                    <label className="label">
-                        <span className="label-text">Your Phone </span>
-                    </label>
-                    <label className="input-group">
-                        <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full" />
-                    </label>
-                </div>
-                <div className="form-control md:w-1/2 ml-4">
+                <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <label className="input-group">
-                        <input  type="email" name="email" placeholder="Email" className="input input-bordered w-full" />
-                    </label>
+                    <input type="text" name="email"  placeholder="email" className="input input-bordered" />
                 </div>
-            </div>
-      
-            <div className=" mb-8">
-                <div className="form-control w-full">
+                <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Your Message</span>
+                        <span className="label-text">Due amount</span>
                     </label>
-                    <label className="input-group">
-                        <input  type="text" name="message" placeholder="Your message" className="input input-bordered w-full" />
-                    </label>
+                    <input type="text" defaultValue={'$'+ price} className="input input-bordered" />
                 </div>
-                
             </div>
-            <input type="submit" value="Order Confirm" className="btn btn-block btn-accent" />
-
+            <div className="form-control mt-6">
+                <input className="btn btn-primary btn-block" type="submit" value="Order Confirm" />
+            </div>
         </form>
-    </div>
+        <div className="card-body">
+
+        </div>
     </div>
  
     );

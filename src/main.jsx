@@ -10,7 +10,7 @@ import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
 import AuthProvider from './Providers/AuthProvider';
-import CheckOut from './Pages/CheckOut/CheckOut';
+// import CheckOut from './Pages/CheckOut/CheckOut';
 import BookService from './Pages/BookService/BookService';
 
 

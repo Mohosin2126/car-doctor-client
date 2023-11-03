@@ -17,7 +17,7 @@ const Bookings = () => {
 
     return (
         <div>
-            <h1>{bookings.length}</h1>
+             <h2 className="text-5xl">Your bookings: {bookings.length}</h2>
         </div>
     );
 };

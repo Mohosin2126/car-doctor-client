@@ -2,6 +2,7 @@
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import axios from "axios";
 
 export  const AuthContext=createContext()
 
@@ -19,8 +20,16 @@ const createUser=(email,password)=>{
 useEffect(()=>{
    const unsubscribe= onAuthStateChanged(auth,currentUser=>{
         setUser(currentUser)
-        console.log(currentUser)
       setLoading(false)
+    //   if user exist then issue a token
+//      if(currentUser){
+//         const loggedUser={email:currentUser.email}
+// axios.post("http://localhost:5173/jwt",loggedUser,{withCredentials:true})
+// .then(res=>{
+//     console.log("token response",res.data)
+// })
+//      }
+
     })
     return ()=>{
         return unsubscribe()

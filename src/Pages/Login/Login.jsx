@@ -4,10 +4,19 @@ import { useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../Providers/AuthProvider';
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn ,google} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
   
+const handleGoogle=()=>{
+    google()
+    .then(result=>{
+    console.log(result)
+        navigate(location?.state? location.state:"/")
+    })
+}
+
+
 
     const handleLogin = event => {
         event.preventDefault();
@@ -64,6 +73,7 @@ const Login = () => {
                                 <input className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
+                        <button onClick={handleGoogle} className='btn btn-secondary btn-outline'>Google Login</button>
                         <p className='my-4 text-center'>New to Car Doctors <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
                     </div>
                 </div>

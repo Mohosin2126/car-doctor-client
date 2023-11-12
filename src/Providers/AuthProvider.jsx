@@ -5,10 +5,10 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 // import axios from "axios";
 
 export  const AuthContext=createContext()
-
+const provider = new GoogleAuthProvider();
 
 const AuthProvider = ({children}) => {
- const provider = new GoogleAuthProvider();
+
 const [user,setUser]=useState(null)
 const [loading,setLoading]=useState(true)
 
@@ -41,9 +41,9 @@ const signIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
 }
 
-const google=(auth,provider)=>{
+const google=(value)=>{
     setLoading(true)
-   return  signInWithPopup(auth, provider)
+   return  signInWithPopup(auth,provider )
 }
 
 

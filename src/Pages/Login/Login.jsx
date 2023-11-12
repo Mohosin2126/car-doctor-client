@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg'
 import { useContext } from 'react';
@@ -27,11 +28,11 @@ const handleGoogle=()=>{
         signIn(email, password)
             .then(result => {
                const loggedInUser=result.user
-               console.log(loggedInUser)
+             
                const user={email}
 
 
-                // get access token
+                // get access token and post
                 axios.post('http://localhost:5000/jwt', user,{withCredentials:true})
                     .then(res => {
                        console.log(res.data)

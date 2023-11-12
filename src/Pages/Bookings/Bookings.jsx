@@ -1,23 +1,24 @@
+
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
 import BookingRow from "./BookingRow";
 import axios from "axios";
-
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Bookings = () => {
     const { user } = useContext(AuthContext);
-    const [bookings, setBookings] = useState([]); 
+    const [bookings, setBookings] = useState([]);
+
+    const url = `http://localhost:5000/bookings?email=${user?.email}`;
     useEffect(() => {
-        // fetch(`http://localhost:5000/bookings?email=${user?.email}`)
-        //     .then(res => res.json())
-        //     .then(data => setBookings(data))
-        
-        axios.get(`http://localhost:5000/bookings?email=${user?.email}`, {withCredentials: true})
+
+        axios.get(url, {withCredentials: true})
         .then(res => {
             setBookings(res.data);
         })
-    }, []);
-
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => setBookings(data))
+    }, [url]);
 
     const handleDelete = id => {
         const proceed = confirm('Are You sure you want to delete');
@@ -30,8 +31,8 @@ const Bookings = () => {
                     console.log(data);
                     if (data.deletedCount > 0) {
                         alert('deleted successful');
-                       const remaining=bookings.filter(booking=>booking._id !==id)
-                       setBookings(remaining)
+                        const remaining = bookings.filter(booking => booking._id !== id);
+                        setBookings(remaining);
                     }
                 })
         }
@@ -58,6 +59,7 @@ const Bookings = () => {
                 }
             })
     }
+
     return (
         <div>
             <h2 className="text-5xl">Your bookings: {bookings.length}</h2>
@@ -83,9 +85,8 @@ const Bookings = () => {
                             bookings.map(booking => <BookingRow
                                 key={booking._id}
                                 booking={booking}
-                                handleDelete={ handleDelete}
+                                handleDelete={handleDelete}
                                 handleBookingConfirm={handleBookingConfirm}
-
                             ></BookingRow>)
                         }
                     </tbody>
